@@ -26,6 +26,7 @@ $(function() {
         $(data).find('.datatable').each(function() {
             var params = {};
             $(this).find('td').each(function(i, td) {
+                // i=0: zeny, i=1: count
                 if (i > 1) {
                     var text = $.trim($(td).text());
                     if (text.match(/・/)) {
