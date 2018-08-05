@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "jRo Torihiki Plus",
+    "version": "1.0.5",
+    "description": "jROの取引履歴で詳細を取得するツール",
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "homepage_url": "https://chrome.google.com/webstore/detail/ro-torihiki-plus/hgokafkkkicmfmmjnclhmklidgndfkoc?hl=ja&gl=JP",
+    "browser_action": {
+        "default_icon": {
+            "19": "icon19.png"
+        }
+    },
+    "content_scripts": [{
+        "run_at": "document_end",
+        "matches": [
+            "https://rotool.gungho.jp/torihiki/*"
+        ],
+        "js": [
+            "js/loader.js"
+        ]
+    }],
+    "web_accessible_resources": [
+        "js/jro_torihiki_plus.js"
+    ],
+    "author": "dimgraycat"
+}
