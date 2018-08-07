@@ -43,15 +43,21 @@ $(function() {
             });
             var tags = $('<ul>', {id: 'torihikiEx'});
             if ('refined' in params) {
-                tags.append(
-                    $('<li>', {class: 'data badge badge-success', text: '・精錬値 + ' + params.refined})
-                );
+                tags.append($('<li>', {class: 'plus-li'}).append(
+                    $('<span>', {
+                        class: 'plus-badge',
+                        text: '・精錬値 + ' + params.refined
+                    })
+                ));
             }
             if ('options' in params) {
                 $.each(params.options, function(j, option) {
-                    tags.append(
-                        $('<li>', {class: 'data badge badge-primary', text: '・' + option})
-                    );
+                    tags.append($('<li>', {class: 'plus-li'}).append(
+                        $('<span>', {
+                            class: 'plus-badge',
+                            text: '・' + option
+                        })
+                    ));
                 });
             }
             $(linkElement).before(tags);
