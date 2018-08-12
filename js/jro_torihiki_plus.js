@@ -28,10 +28,15 @@ $(function() {
             $(this).find('td').each(function(i, td) {
                 // i=0: zeny, i=1: count
                 if (i > 1) {
-                    var text = $.trim($(td).text());
+                    var text = $.trim($(td).html());
                     if (text.match(/・/)) {
-                        params.options = text.split('・');
-                        params.options.shift();
+                        if (text.match(/<br>/)) {
+                            params.options = text.split('<br>');
+                        }
+                        else {
+                            params.options = [];
+                            params.options.push(text);
+                        }
                     }
                     else {
                         params.refined = text;
@@ -55,7 +60,7 @@ $(function() {
                     tags.append($('<li>', {class: 'plus-li'}).append(
                         $('<span>', {
                             class: 'plus-badge',
-                            text: '・' + option
+                            text: option
                         })
                     ));
                 });
