@@ -5,3 +5,15 @@
     display: inline-block;
     font-size: 85%;
 }
+
+#searchresult .result_sns {
+    text-align: right;
+    background: #fff;
+}
+#searchresult .result_sns a img {
+    width: 18px;
+    height: 18px;
+}
+#searchresult .result_sns .twitter {
+    margin-right: 3px;
+}

@@ -1,3 +1,4 @@
+// add options
 $(function() {
     addDetails();
 
