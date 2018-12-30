@@ -34,8 +34,8 @@ $(function() {
             ],
         ];
 
+        var groupElement = $('<p>', {class: 'torihikiEx-worlds'});
         for (group in worlds) {
-            var groupElement = $('<p>', {class: 'torihikiEx-worlds'});
             for (world in worlds[group]) {
                 for (name in worlds[group][world]) {
                     uri.searchParams.set("world", worlds[group][world][name]);
@@ -45,8 +45,9 @@ $(function() {
                     }));
                 }
             }
-            worldElement.append(groupElement);
+            groupElement.append($('<br>'));
         }
+        worldElement.append(groupElement);
     }
 });
 
