@@ -1,3 +1,55 @@
+// add world change
+$(function() {
+    if (document.getElementById('searchresult') != null) {
+        var uri = new URL(location.href);
+        var worldElement = $('<div>', {id: 'torihikiEx-worldSelect'});
+        worldElement.append($('<p>', {
+            class: 'torihikiEx-worldSelect-description',
+            text: 'ワールド変更'
+        }));
+        worldSelect(worldElement, uri);
+        $('#searchresult').prepend(worldElement);
+    }
+
+    function worldSelect(worldElement, uri) {
+        var worlds = [
+            [
+                {"Breidablik": 13},
+                {"Noatun": 15},
+                {"Urdr": 14},
+            ],
+            [
+                {"Lif": 12},
+                {"Mimir": 11},
+                {"Olrun": 6},
+                {"Sigrun": 1},
+                {"Alvitr": 2},
+                {"Hervor": 8},
+                {"Idavoll": 9},
+                {"Trudr": 4},
+                {"Frigg": 10},
+                {"Gimle": 7},
+                {"Radgrid": 5},
+                {"Vali": 3}
+            ],
+        ];
+
+        for (group in worlds) {
+            var groupElement = $('<p>', {class: 'torihikiEx-worlds'});
+            for (world in worlds[group]) {
+                for (name in worlds[group][world]) {
+                    uri.searchParams.set("world", worlds[group][world][name]);
+                    groupElement.append($('<a>', {
+                        href: uri.toString(),
+                        text: name
+                    }));
+                }
+            }
+            worldElement.append(groupElement);
+        }
+    }
+});
+
 // add options
 $(function() {
     addDetails();

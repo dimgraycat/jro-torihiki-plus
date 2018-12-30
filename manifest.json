@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "jRo Torihiki Plus",
-    "version": "1.0.13",
+    "version": "1.0.14",
     "description": "jROの取引履歴で詳細を取得するツール",
     "icons": {
         "16": "icon16.png",
