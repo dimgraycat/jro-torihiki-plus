@@ -52,3 +52,17 @@
 #searchresult .result_sns .twitter {
     margin-right: 3px;
 }
+
+/* average, max, min */
+#searchresult .result_maxmin:after {
+    clear: both;
+    content: '';
+    display: block;
+}
+#searchresult .result_maxmin .numdata {
+    float: left;
+    min-width: 33%;
+}
+#searchresult .result_maxmin .num {
+    text-align: right;
+}
