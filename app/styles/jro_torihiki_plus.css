@@ -7,19 +7,19 @@
 }
 
 /* ワールドセレクト */
-#torihikiEx-worldSelect {
+#plus-worldSelect {
     background: #e6edfa;
     font-size: small;
     padding: 8px;
     -webkit-border-radius: 3px;
     margin: 3px 0 5px 0;
 }
-#torihikiEx-worldSelect:after {
+#plus-worldSelect:after {
     clear: both;
     content: '';
     display: block;
 }
-#torihikiEx-worldSelect .torihikiEx-worldSelect-description {
+#plus-worldSelect .plus-worldSelect-description {
     float: left;
     color: #fff;
     background: #01aaed;
@@ -27,13 +27,13 @@
     padding: 8px;
     margin: 3px 0 8px 0;
 }
-#torihikiEx-worldSelect .torihikiEx-worlds {
+#plus-worldSelect .plus-worlds {
     float: left;
     font-size: small;
     line-height: 150%;
     margin: 0 0 0 15px;
 }
-#torihikiEx-worldSelect .torihikiEx-worlds a {
+#plus-worldSelect .plus-worlds a {
     float: left;
     text-decoration: none;
     color: #7d7d7d;
