@@ -30,6 +30,7 @@
     "babel-preset-env": "1.x.x",
     "chai": "4.x.x",
     "chromereload": "0.x.x",
+    "cryptiles": "4.x.x",
     "debounce": "1.x.x",
     "del": "3.x.x",
     "gulp": "3.x.x",
