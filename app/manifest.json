@@ -27,6 +27,5 @@
   "web_accessible_resources": [
     "scripts/contentscript.js",
     "styles/jro_torihiki_plus.css"
-  ],
-  "author": "dimgraycat"
+  ]
 }
