@@ -1,3 +1,5 @@
+import * as _ from 'underscore';
+
 class TorihikiPlus {
   worlds = [
     [
@@ -92,28 +94,29 @@ class TorihikiPlus {
             }
           }
           else {
-            params.refined = text;
-            if (params.refined === '0') {
-              delete params.refined;
+            params.refining = text;
+            if (params.refining === '0') {
+              delete params.refining;
             }
           }
         }
       });
       var tags = $('<ul>', {id: 'plus'});
-      if ('refined' in params) {
+      if ('refining' in params) {
         tags.append($('<li>', {class: 'plus-li'}).append(
           $('<span>', {
             class: 'plus-badge',
-            text: '・精錬値 + ' + params.refined
+            text: '・精錬値 + ' + params.refining
           })
         ));
       }
       if ('options' in params) {
         $.each(params.options, function(j, option) {
+          option = option.replace('	</overclock>', '');
           tags.append($('<li>', {class: 'plus-li'}).append(
             $('<span>', {
               class: 'plus-badge',
-              text: option
+              text: _.unescape(option)
             })
           ));
         });

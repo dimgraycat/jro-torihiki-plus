@@ -1,7 +1,7 @@
 {
   "name": "jro_torihiki_plus",
   "private": true,
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   "scripts": {
     "start": "npm run dev:chrome",
@@ -61,7 +61,9 @@
     "yargs": "^8.x.x"
   },
   "dependencies": {
+    "@types/underscore": "^1.8.13",
     "gulp-uglify": "^3.0.1",
-    "typescript": "^3.2.4"
+    "typescript": "^3.2.4",
+    "underscore": "^1.9.1"
   }
 }
