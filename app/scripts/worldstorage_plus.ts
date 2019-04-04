@@ -34,7 +34,6 @@ class SearchItems {
   }
 
   worldstorage() {
-    //let parts:any = new wsForm();
     let itemList = new List('plus-ws-itemList', {valueNames: [
       'name', 'standard', 'expert', 'goOut'
     ]});
@@ -86,7 +85,7 @@ class SearchItems {
     p1.append($('<span>', {text: '検索:'}));
     p1.append($('<input>', {
       class: 'search',
-      placeholder: 'Searh'
+      placeholder: 'アイテム名'
     }));
     div.append(p1);
 
