@@ -1,6 +1,6 @@
 {
-  "name": "jRo Torihiki Plus",
-  "description": "jROの取引履歴で詳細を取得するツール",
+  "name": "jRo Tools Plus",
+  "description": "jROの公式ページを便利にツール",
   "version": "1.0.20",
   "manifest_version": 2,
   "icons": {
@@ -12,11 +12,11 @@
   "content_scripts": [{
     "run_at": "document_end",
     "matches": [
-      "https://rotool.gungho.jp/torihiki/*"
-        ],
-        "js": [
-          "scripts/loader.js"
-        ]
+      "https://rotool.gungho.jp/torihiki/*",
+      "https://ragnarokonline.gungho.jp/gameguide/system/worldstorage/sta.html",
+      "https://ragnarokonline.gungho.jp/gameguide/system/worldstorage/ygg.html"
+    ],
+    "js": ["scripts/loader.js"]
   }],
   "browser_action": {
     "default_icon": {
@@ -25,7 +25,8 @@
   },
   "permissions": [],
   "web_accessible_resources": [
-    "scripts/contentscript.js",
+    "scripts/torihiki_plus.js",
+    "scripts/worldstorage_plus.js",
     "styles/jro_torihiki_plus.css"
   ]
 }

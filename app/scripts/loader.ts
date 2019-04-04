@@ -16,5 +16,9 @@ let css = (list: string[]): void => {
   });
 }
 
-script(['scripts/contentscript.js']);
+script([
+  'scripts/torihiki_plus.js',
+  'scripts/worldstorage_plus.js'
+]);
 css(['styles/jro_torihiki_plus.css']);
+

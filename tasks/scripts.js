@@ -7,7 +7,6 @@ import gulpWebpack from 'webpack-stream'
 import plumber from 'gulp-plumber'
 import livereload from 'gulp-livereload'
 import args from './lib/args'
-import uglify from 'gulp-uglify'
 
 const ENV = args.production ? 'production' : 'development'
 
@@ -57,7 +56,6 @@ gulp.task('scripts', (cb) => {
         children: false
       }))
     }))
-    .pipe(uglify())
     .pipe(gulp.dest(`dist/${args.vendor}/scripts`))
     .pipe(gulpif(args.watch, livereload()))
 })

@@ -1,68 +1,101 @@
 .plus-li {
-    margin-top: .15em;
+  margin-top: .15em;
 }
 .plus-badge {
-    display: inline-block;
-    font-size: 85%;
+  display: inline-block;
+  font-size: 85%;
+}
+
+/* ワールドストレージ */
+#plus-ws-form {
+  background: #e6edfa;
+  padding: 5px;
+  -webkit-border-radius: 3px;
+  margin: 5px;
+}
+#plus-ws-form p .search {
+  border:0;
+  padding: 3px;
+  background-color: #fff;
+  margin-bottom: 3px;
+  color:#000;
+  border:solid 1px #ccc;
+  width:300px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 1px 4px 9px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.5);
+}
+#plus-ws-form p span {
+  font-weight: bold;
+  margin-right: 5px;
+}
+#plus-ws-form .plus-ws-checkbox {
+  margin-right: 2px;
+}
+#plus-ws-form .plus-ws-radio-label {
+  margin-right: 8px;
 }
 
 /* ワールドセレクト */
 #plus-worldSelect {
-    background: #e6edfa;
-    font-size: small;
-    padding: 8px;
-    -webkit-border-radius: 3px;
-    margin: 3px 0 5px 0;
+  background: #e6edfa;
+  font-size: small;
+  padding: 8px;
+  -webkit-border-radius: 3px;
+  margin: 3px 0 5px 0;
 }
 #plus-worldSelect:after {
-    clear: both;
-    content: '';
-    display: block;
+  clear: both;
+  content: '';
+  display: block;
 }
 #plus-worldSelect .plus-worldSelect-description {
-    float: left;
-    color: #fff;
-    background: #01aaed;
-    -webkit-border-radius: 3px;
-    padding: 8px;
-    margin: 3px 0 8px 0;
+  float: left;
+  color: #fff;
+  background: #01aaed;
+  -webkit-border-radius: 3px;
+  padding: 8px;
+  margin: 3px 0 8px 0;
 }
 #plus-worldSelect .plus-worlds {
-    float: left;
-    font-size: small;
-    line-height: 150%;
-    margin: 0 0 0 15px;
+  float: left;
+  font-size: small;
+  line-height: 150%;
+  margin: 0 0 0 15px;
 }
 #plus-worldSelect .plus-worlds a {
-    float: left;
-    text-decoration: none;
-    color: #7d7d7d;
-    margin: 0 10px 0 0;
+  float: left;
+  text-decoration: none;
+  color: #7d7d7d;
+  margin: 0 10px 0 0;
 }
 
 /* SNSシェアを小さく */
 #searchresult .result_sns {
-    text-align: right;
-    background: #fff;
+  text-align: right;
+  background: #fff;
 }
 #searchresult .result_sns a img {
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 }
 #searchresult .result_sns .twitter {
-    margin-right: 3px;
+  margin-right: 3px;
 }
 
 /* average, max, min */
 #searchresult .result_maxmin:after {
-    clear: both;
-    content: '';
-    display: block;
+  clear: both;
+  content: '';
+  display: block;
 }
 #searchresult .result_maxmin .numdata {
-    float: left;
-    min-width: 33%;
+  float: left;
+  min-width: 33%;
 }
 #searchresult .result_maxmin .num {
-    text-align: right;
+  text-align: right;
 }

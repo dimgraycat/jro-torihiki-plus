@@ -1,7 +1,8 @@
+/// <reference path="../../typings/globals/jquery/index.d.ts" />
 import * as _ from 'underscore';
 
 class TorihikiPlus {
-  worlds = [
+  private worlds: any = [
     [
       {"Breidablik": 13},
       {"Noatun": 15},
@@ -22,15 +23,17 @@ class TorihikiPlus {
       {"Vali": 3}
     ]
   ];
-  uri;
+  public uri: URL;
 
   constructor() {
     // add world change
     this.uri = new URL(location.href);
-    this.worldChange();
+    if (this.uri.host === "rotool.gungho.jp") {
+      this.worldChange();
 
-    // add options
-    this.detail();
+      // add options
+      this.detail();
+    }
   }
 
   worldChange() {
@@ -42,9 +45,9 @@ class TorihikiPlus {
       }));
 
       var groupElement = $('<p>', {class: 'plus-worlds'});
-      for (group in this.worlds) {
-        for (world in this.worlds[group]) {
-          for (name in this.worlds[group][world]) {
+      for (let group in this.worlds) {
+        for (let world in this.worlds[group]) {
+          for (let name in this.worlds[group][world]) {
             this.uri.searchParams.set("world", this.worlds[group][world][name]);
             groupElement.append($('<a>', {
               href: this.uri.toString(),
@@ -60,30 +63,32 @@ class TorihikiPlus {
   }
 
   detail() {
-    _this = this;
-    $.each($('.tradedetail.clearfix'), function() {
-      var table = this;
-      if (!$(table).find('#plus').size()) {
-        $(table).find('.link').each(function() {
-          var linkElement = this;
-          // href: log_detail.php?log=xxxxx
-          var href = $(linkElement).find('a').attr('href');
-          $.ajax({type: 'get', url: href})
-            .done(function(data) {
-              _this.parse(linkElement, data);
-            });
-        });
-      }
-    });
+    let _this = this;
+    if (document.getElementsByClassName('.tradedetail.clearfix') != null) {
+      $.each($('.tradedetail.clearfix'), function() {
+        let table = this;
+        if (!$(table).find('#plus').size()) {
+          $(table).find('.link').each(function() {
+            let linkElement = this;
+            // href: log_detail.php?log=xxxxx
+            let href = $(linkElement).find('a').attr('href');
+            $.ajax({type: 'get', url: href})
+              .done(function(data) {
+                _this.parse(linkElement, data);
+              });
+          });
+        }
+      });
+    }
   }
 
-  parse(linkElement, data:string) {
+  parse(linkElement: Element, data:string) {
     $(data).find('.datatable').each(function() {
-      var params = {};
-      $(this).find('td').each(function(i:number, td:string) {
+      let params: any = {};
+      $(this).find('td').each(function(i:number, td:Element) {
         // i=0: zeny, i=1: count
         if (i > 1) {
-          var text = $.trim($(td).html());
+          let text = $.trim($(td).html());
           if (text.match(/・/)) {
             if (text.match(/<br>/)) {
               params.options = text.split('<br>');
@@ -101,7 +106,7 @@ class TorihikiPlus {
           }
         }
       });
-      var tags = $('<ul>', {id: 'plus'});
+      let tags = $('<ul>', {id: 'plus'});
       if ('refining' in params) {
         tags.append($('<li>', {class: 'plus-li'}).append(
           $('<span>', {
@@ -126,11 +131,13 @@ class TorihikiPlus {
   }
 }
 
-var plus = new TorihikiPlus();
+let plus = new TorihikiPlus();
 
-var addDetail = (): void {
-  plus.detail();
+if (plus.uri.host === "rotool.gungho.jp") {
+  let addDetail = (): void => {
+    plus.detail();
+  }
+  $(document).on('click', '.more > a', function() {
+    setTimeout(addDetail, 1000);
+  });
 }
-$(document).on('click', '.more > a', function() {
-  setTimeout(addDetail, 1000);
-});
