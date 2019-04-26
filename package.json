@@ -1,7 +1,7 @@
 {
   "name": "jro_torihiki_plus",
   "private": true,
-  "version": "1.0.22",
+  "version": "1.0.23",
   "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   "scripts": {
     "start": "npm run dev:chrome",
