@@ -73,6 +73,30 @@
   margin: 0 10px 0 0;
 }
 
+/* もっと見るボタン */
+#searchresult .more {
+	background-image: -moz-linear-gradient(top, #fff, #e3e3e3);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e3e3e3));
+	min-width: 130px;
+	margin: 0 95px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #cbcbcb;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	font-size: 80%;
+}
+
+#searchresult .more a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #7d7d7d;
+    padding: 15px;
+}
+
 /* SNSシェアを小さく */
 #searchresult .result_sns {
   text-align: right;
