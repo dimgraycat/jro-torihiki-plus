@@ -13,6 +13,8 @@ class SearchItems {
 
   constructor() {
     if (this.canRun()) {
+      this.addTopButton();
+      this.topButton();
       this.customTable();
       this.addForm();
       this.worldstorage();
@@ -31,6 +33,32 @@ class SearchItems {
       }
     });
     return canRun;
+  }
+
+  addTopButton() {
+    let p = $('<p>', {id: 'plus-top-button'});
+    p.append($('<a>', {
+      text: 'Top',
+      href: 'javascript:void(0)'
+    }));
+    $('body').append(p);
+  }
+
+  topButton() {
+    let button = $('#plus-top-button');
+    button.hide();
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 200) {
+        button.fadeIn();
+      } else {
+        button.fadeOut();
+      }
+    });
+
+    button.click(() => {
+      $('body,html').animate({scrollTop: 0}, 500);
+      return false;
+    });
   }
 
   worldstorage() {

@@ -41,7 +41,7 @@ export default class WorldstoragePlusForm {
   }
 
   static isCostume(name:string) {
-    let regex = /^\[衣装/g;
+    let regex = / ?\[衣装/g;
     return (name.match(regex)) ? true : false;
   }
 
