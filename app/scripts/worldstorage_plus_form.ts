@@ -27,8 +27,12 @@ export default class WorldstoragePlusForm {
   }
 
   static isEquipment(name:string) {
-    let regex = /[0-4]\]$/g;
-    return (name.match(regex) && !this.isCostume(name)) ? true : false;
+    let regex1 = /式鍛錬符$/g;
+    if (name.match(regex1)) {
+      return true;
+    }
+    let regex2 = /[0-4]\]$/g;
+    return (name.match(regex2) && !this.isCostume(name)) ? true : false;
   }
 
   static isCoin(name:string) {
