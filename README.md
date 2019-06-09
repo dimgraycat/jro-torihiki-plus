@@ -4,7 +4,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
 
 ## Installation
 
-	$ npm install
+	$ yarn
 
 ## Usage
 
