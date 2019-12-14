@@ -1,12 +1,12 @@
 /// <reference path="../../typings/globals/jquery/index.d.ts" />
-import * as _ from 'underscore';
+import * as _ from 'underscore'
 
 class TorihikiPlus {
   private worlds: any = [
     [
       {"Breidablik": 13},
-      {"Noatun": 15},
-      {"Urdr": 14}
+      {"Urdr": 14},
+      {"Noatun": 15}
     ],
     [
       {"Lif": 12},
@@ -22,122 +22,122 @@ class TorihikiPlus {
       {"Radgrid": 5},
       {"Vali": 3}
     ]
-  ];
-  public uri: URL;
+  ]
+  public uri: URL
 
   constructor() {
     // add world change
-    this.uri = new URL(location.href);
+    this.uri = new URL(location.href)
     if (this.uri.host === "rotool.gungho.jp") {
-      this.worldChange();
+      this.worldChange()
 
       // add options
-      this.detail();
+      this.detail()
     }
   }
 
   worldChange() {
     if (document.getElementById('searchresult') != null) {
-      var worldElement = $('<div>', {id: 'plus-worldSelect'});
+      var worldElement = $('<div>', {id: 'plus-worldSelect'})
       worldElement.append($('<p>', {
         class: 'plus-worldSelect-description',
         text: 'ワールド変更'
-      }));
+      }))
 
-      var groupElement = $('<p>', {class: 'plus-worlds'});
+      var groupElement = $('<p>', {class: 'plus-worlds'})
       for (let group in this.worlds) {
         for (let world in this.worlds[group]) {
           for (let name in this.worlds[group][world]) {
-            this.uri.searchParams.set("world", this.worlds[group][world][name]);
+            this.uri.searchParams.set("world", this.worlds[group][world][name])
             groupElement.append($('<a>', {
               href: this.uri.toString(),
               text: name
-            }));
+            }))
           }
         }
-        groupElement.append($('<br>'));
+        groupElement.append($('<br>'))
       }
-      worldElement.append(groupElement);
-      $('#searchresult').prepend(worldElement);
+      worldElement.append(groupElement)
+      $('#searchresult').prepend(worldElement)
     }
   }
 
   detail() {
-    let _this = this;
+    let _this = this
     if (document.getElementsByClassName('.tradedetail.clearfix') != null) {
       $.each($('.tradedetail.clearfix'), function() {
-        let table = this;
+        let table = this
         if (!$(table).find('#plus').size()) {
           $(table).find('.link').each(function() {
-            let linkElement = this;
+            let linkElement = this
             // href: log_detail.php?log=xxxxx
-            let href = $(linkElement).find('a').attr('href');
+            let href = $(linkElement).find('a').attr('href')
             $.ajax({type: 'get', url: href})
               .done(function(data) {
-                _this.parse(linkElement, data);
-              });
-          });
+                _this.parse(linkElement, data)
+              })
+          })
         }
-      });
+      })
     }
   }
 
   parse(linkElement: Element, data:string) {
     $(data).find('.datatable').each(function() {
-      let params: any = {};
+      let params: any = {}
       $(this).find('td').each(function(i:number, td:Element) {
         // i=0: zeny, i=1: count
         if (i > 1) {
-          let text = $.trim($(td).html());
+          let text = $.trim($(td).html())
           if (text.match(/・/)) {
             if (text.match(/<br>/)) {
-              params.options = text.split('<br>');
+              params.options = text.split('<br>')
             }
             else {
-              params.options = [];
-              params.options.push(text);
+              params.options = []
+              params.options.push(text)
             }
           }
           else {
-            params.refining = text;
+            params.refining = text
             if (params.refining === '0') {
-              delete params.refining;
+              delete params.refining
             }
           }
         }
-      });
-      let tags = $('<ul>', {id: 'plus'});
+      })
+      let tags = $('<ul>', {id: 'plus'})
       if ('refining' in params) {
         tags.append($('<li>', {class: 'plus-li'}).append(
           $('<span>', {
             class: 'plus-badge',
             text: '・精錬値 + ' + params.refining
           })
-        ));
+        ))
       }
       if ('options' in params) {
         $.each(params.options, function(j, option) {
-          option = option.replace('	</overclock>', '');
+          option = option.replace('	</overclock>', '')
           tags.append($('<li>', {class: 'plus-li'}).append(
             $('<span>', {
               class: 'plus-badge',
               text: _.unescape(option)
             })
-          ));
-        });
+          ))
+        })
       }
-      $(linkElement).before(tags);
-    });
+      $(linkElement).before(tags)
+    })
   }
 }
 
-let plus = new TorihikiPlus();
+let plus = new TorihikiPlus()
 
 if (plus.uri.host === "rotool.gungho.jp") {
   let addDetail = (): void => {
-    plus.detail();
+    plus.detail()
   }
   $(document).on('click', '.more > a', function() {
-    setTimeout(addDetail, 1000);
-  });
+    setTimeout(addDetail, 1000)
+  })
 }

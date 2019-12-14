@@ -23,10 +23,12 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.7.5",
+    "@babel/preset-env": "^7.7.6",
     "@types/chrome": "^0.x.x",
     "babel-cli": "6.x.x",
     "babel-core": "6.x.x",
-    "babel-loader": "7.x.x",
+    "babel-loader": "^8.0.6",
     "babel-preset-env": "1.x.x",
     "braces": ">=2.3.1",
     "chai": "4.x.x",
@@ -36,7 +38,7 @@
     "del": "3.x.x",
     "eslint": "4.18.2",
     "fstream": ">=1.0.12",
-    "gulp": "3.x.x",
+    "gulp": "3.9.0",
     "gulp-bump": "2.x.x",
     "gulp-cache": "0.x.x",
     "gulp-clean-css": "^3.x.x",
@@ -64,6 +66,7 @@
     "tunnel-agent": ">=0.6.0",
     "vinyl-named": "1.x.x",
     "webpack": "3.x.x",
+    "webpack-cli": "^3.3.10",
     "webpack-stream": "^5.2.1",
     "yargs": "^8.x.x"
   },
