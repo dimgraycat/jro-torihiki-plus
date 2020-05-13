@@ -73,7 +73,7 @@
   "dependencies": {
     "@types/underscore": "^1.8.13",
     "gulp-uglify": "^3.0.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "list.js": "^1.5.0",
     "typescript": "^3.2.4",
     "underscore": "^1.9.1"
