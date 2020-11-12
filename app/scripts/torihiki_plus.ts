@@ -100,7 +100,7 @@ class TorihikiPlus {
           }
           else {
             params.refining = text
-            if (params.refining === '0') {
+            if (params.refining === '0' || params.refining === 'なし') {
               delete params.refining
             }
           }
