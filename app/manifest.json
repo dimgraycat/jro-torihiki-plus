@@ -12,9 +12,9 @@
   "content_scripts": [{
     "run_at": "document_end",
     "matches": [
-      "https://rotool.gungho.jp/torihiki/*",
-      "https://ragnarokonline.gungho.jp/gameguide/system/worldstorage/sta.html",
-      "https://ragnarokonline.gungho.jp/gameguide/system/worldstorage/ygg.html"
+      "*://*.gungho.jp/torihiki/*",
+      "*://*.gungho.jp/gameguide/system/worldstorage/sta.html",
+      "*://*.gungho.jp/gameguide/system/worldstorage/ygg.html"
     ],
     "js": ["scripts/loader.js"]
   }],
